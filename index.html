@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ResgataPet — Cada vida importa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/global.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a class="nav-logo" onclick="goHome()">Resgata<span>Pet</span>.</a>
+  <div class="nav-links" id="navLinks">
+    <a onclick="goHome(); scrollTo('#modulos')">Como funciona</a>
+    <a onclick="goHome(); scrollTo('#adocao')">Adotar</a>
+    <a onclick="goHome(); scrollTo('#doacao')">Doar</a>
+    <a onclick="goHome(); scrollTo('#impacto')">Impacto</a>
+    <a onclick="goHome(); scrollTo('#adocao')" class="nav-cta">Encontrar um pet</a>
+  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ════════ HOME VIEW ════════ -->
+<div class="view active" id="homeView">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-tag"><span class="hero-tag-dot"></span>Plataforma de adoção responsável</div>
+      <h1>Todo pet merece um lar <em>cheio de amor</em></h1>
+      <p>Conectamos animais abandonados com famílias amorosas. Adote, doe ração ou registre um animal encontrado.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="scrollTo('#adocao')">🐾 Quero adotar</button>
+        <button class="btn-secondary" onclick="scrollTo('#resgate')">Registrar resgate →</button>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-num" id="hc1">0</div><div class="stat-label">adoções realizadas</div></div>
+        <div><div class="stat-num" id="hc2">0</div><div class="stat-label">animais resgatados</div></div>
+        <div><div class="stat-num" id="hc3">0</div><div class="stat-label">ONGs parceiras</div></div>
+      </div>
+    </div>
+   <img src="data/images/foto-10.jpg" alt="Reddish-brown and white dog with alert expression and pointed ears against a bright green background. The dog gazes directly at the camera with a focused, friendly demeanor. An adoptable pet featured on the ResgataPet platform.">
+          <h4>Thor</h4>
+          <div class="meta">Labrador · 2 anos · São Paulo, SP</div>
+          <div class="tags">
+            <span class="tag tag-verde">Vacinado</span>
+            <span class="tag tag-terra">Castrado</span>
+            <span class="tag tag-gray">Amigável</span>
+          </div>
+          <button onclick="openAnimalModal('thor')">Quero adotar o Thor</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÓDULOS -->
+  <section class="modules" id="modulos">
+    <div class="reveal">
+      <p class="section-label">Como funciona</p>
+      <h2 class="section-title">Tudo que um animal<br>abandonado precisa</h2>
+    </div>
+    <div class="modules-grid">
+      <div class="module-card reveal" onclick="scrollTo('#adocao')">
+        <div class="module-icon terra">🏠</div>
+        <h3>Adoção</h3>
+        <p>Encontre seu novo melhor amigo entre centenas de animais aguardando um lar.</p>
+        <span class="module-link">Ver animais <span>→</span></span>
+      </div>
+      <div class="module-card reveal" onclick="scrollTo('#doacao')">
+        <div class="module-icon verde">🍖</div>
+        <h3>Doação de ração</h3>
+        <p>Doe diretamente para ONGs parceiras e acompanhe o impacto da sua doação.</p>
+        <span class="module-link">Escolher ONG <span>→</span></span>
+      </div>
+      <div class="module-card reveal" onclick="scrollTo('#resgate')">
+        <div class="module-icon blue">📍</div>
+        <h3>Registro de resgate</h3>
+        <p>Encontrou um animal na rua? Registre agora e ajude a encaminhá-lo.</p>
+        <span class="module-link">Registrar <span>→</span></span>
+      </div>
+      <div class="module-card reveal" onclick="scrollTo('#impacto')">
+        <div class="module-icon amber">📊</div>
+        <h3>Impacto social</h3>
+        <p>Veja em tempo real quantas vidas foram transformadas pela plataforma.</p>
+        <span class="module-link">Ver números <span>→</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADOÇÃO -->
+  <section class="adocao" id="adocao">
+    <div class="reveal">
+      <div class="adocao-header">
+        <div>
+          <p class="section-label">Adoção</p>
+          <h2 class="section-title">Animais esperando por você</h2>
+        </div>
+        <div class="filters">
+          <button class="filter-btn active" onclick="filterAnimais('todos',this)">Todos</button>
+          <button class="filter-btn" onclick="filterAnimais('cachorro',this)">Cachorros</button>
+          <button class="filter-btn" onclick="filterAnimais('gato',this)">Gatos</button>
+        </div>
+      </div>
+    </div>
+    <div class="animais-grid">
+      <div class="animal-card" data-tipo="cachorro" onclick="openAnimalModal('thor')">
+        <div class="animal-thumb cachorro"><div class="animal-badge">Disponível</div><img src="data/images/foto-10.jpg" alt="thor"></div>
+        <div class="animal-info">
+          <h4>Thor</h4><div class="meta">Labrador · 1 anos · PRESIDENTE DUTRA, MA</div>
+          <div class="tags"><span class="tag tag-verde">Vacinado</span><span class="tag tag-terra">Castrado</span></div>
+          <button class="btn-adoptar">Ver detalhes</button>
+        </div>
+      </div>
+      <div class="animal-card" data-tipo="gato" onclick="openAnimalModal('mimi')">
+        <div class="animal-thumb gato"><div class="animal-badge">Disponível</div><img src="data/images/foto-9.jpg" alt="mimi"></div>
+        <div class="animal-info">
+          <h4>Mimi</h4><div class="meta">SRD ·1 ano ·  PRESIDENTE DUTRA, MA</div>
+          <div class="tags"><span class="tag tag-verde">Vacinada</span><span class="tag tag-gray">Dócil</span></div>
+          <button class="btn-adoptar">Ver detalhes</button>
+        </div>
+      </div>
+      <div class="animal-card" data-tipo="cachorro" onclick="openAnimalModal('bolt')">
+        <div class="animal-thumb cachorro"><div class="animal-badge">Disponível</div><img src="data/images/foto-2.jpg" alt="bolt"></div>
+        <div class="animal-info">
+          <h4>Bolt</h4><div class="meta">vira lata ·  5 meses · PRESIDENTE DUTRA, MA</div>
+          <div class="tags"><span class="tag tag-verde">Vacinado</span><span class="tag tag-terra">Castrado</span></div>
+          <button class="btn-adoptar">Ver detalhes</button>
+        </div>
+      </div>
+      <div class="animal-card" data-tipo="gato" onclick="openAnimalModal('nala')">
+        <div class="animal-thumb gato"><div class="animal-badge">Disponível</div><img src="data/images/foto-8.jpg" alt="Nala"></div>
+        <div class="animal-info">
+          <h4>Nala</h4><div class="meta"> · 2 anos · PRESIDENTE DUTRA, MA</div>
+          <div class="tags"><span class="tag tag-verde">Vacinada</span><span class="tag tag-gray">Carinhosa</span></div>
+          <button class="btn-adoptar">Ver detalhes</button>
+        </div>
+      </div>
+      <div class="animal-card" data-tipo="cachorro" onclick="openAnimalModal('rex')">
+        <div class="animal-thumb cachorro"><div class="animal-badge">Disponível</div>
+        <img src="data/images/foto-4.jpg" alt="Rex"></div>
+        <div class="animal-info">
+          <h4>Rex</h4><div class="meta">Vira-lata · 5 meses ·PRESIDENTE DUTRA, MA</div>
+          <div class="tags"><span class="tag tag-verde">Vacinado</span><span class="tag tag-gray">Leal</span></div>
+          <button class="btn-adoptar">Ver detalhes</button>
+        </div>
+      </div>
+      <div class="animal-card" data-tipo="gato" onclick="openAnimalModal('luna')">
+        <div class="animal-thumb gato"><div class="animal-badge">Disponível</div><img src="data/images/foto-6.jpg" alt="Luna"></div>
+        <div class="animal-info">
+          <h4>Luna</h4><div class="meta">SRD · 1 ano · PRESIDENTE DUTRA, MA</div>
+          <div class="tags"><span class="tag tag-terra">Filhote</span><span class="tag tag-gray">Brincalhona</span></div>
+          <button class="btn-adoptar">Ver detalhes</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESGATE -->
+  <section style="background:var(--white);padding:96px 5%;" id="resgate">
+    <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+      <div>
+        <p class="section-label">Resgate</p>
+        <h2 class="section-title">Encontrou um animal?<br>Registre agora</h2>
+        <p class="section-subtitle" style="margin-bottom:32px;">Preencha o formulário e um voluntário da ONG mais próxima irá atender.</p>
+        <div style="background:var(--creme);border-radius:var(--radius);padding:30px;border:1px solid var(--border);">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+            <div>
+              <label style="font-size:13px;font-weight:500;display:block;margin-bottom:6px;">Espécie *</label>
+              <select style="width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:var(--radius-sm);background:var(--white);font-family:'DM Sans',sans-serif;font-size:14px;outline:none;">
+                <option>Cachorro</option><option>Gato</option><option>Outro</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size:13px;font-weight:500;display:block;margin-bottom:6px;">Porte</label>
+              <select style="width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:var(--radius-sm);background:var(--white);font-family:'DM Sans',sans-serif;font-size:14px;outline:none;">
+                <option>Pequeno</option><option>Médio</option><option>Grande</option>
+              </select>
+            </div>
+          </div>
+          <div style="margin-bottom:14px;">
+            <label style="font-size:13px;font-weight:500;display:block;margin-bottom:6px;">Localização *</label>
+            <input type="text" placeholder="Ex: Rua das Flores, 123 — São Paulo, SP" style="width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:'DM Sans',sans-serif;font-size:14px;outline:none;">
+          </div>
+          <div style="margin-bottom:14px;">
+            <label style="font-size:13px;font-weight:500;display:block;margin-bottom:6px;">Seu WhatsApp *</label>
+            <input type="tel" placeholder="(11) 99999-9999" style="width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:'DM Sans',sans-serif;font-size:14px;outline:none;">
+          </div>
+          <button class="btn-primary" style="width:100%;justify-content:center;" onclick="showToast('✅ Resgate registrado! Uma ONG entrará em contato.')">Registrar resgate</button>
+        </div>
+      </div>
+      <div>
+        <div style="background:linear-gradient(135deg,#E8F5EE,#D0EEE0);border-radius:var(--radius);height:380px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;border:1px solid var(--border);position:relative;overflow:hidden;">
+          <div style="position:absolute;inset:0;pointer-events:none;">
+            <div style="position:absolute;top:30%;left:40%;width:12px;height:12px;background:var(--terra);border-radius:50%;border:2px solid var(--white);box-shadow:0 2px 8px rgba(200,98,42,0.4);"></div>
+            <div style="position:absolute;top:55%;left:62%;width:12px;height:12px;background:var(--terra);border-radius:50%;border:2px solid var(--white);"></div>
+            <div style="position:absolute;top:44%;left:25%;width:12px;height:12px;background:var(--terra);border-radius:50%;border:2px solid var(--white);"></div>
+            <div style="position:absolute;top:70%;left:50%;width:12px;height:12px;background:var(--terra);border-radius:50%;border:2px solid var(--white);"></div>
+          </div>
+          <div style="font-size:32px;animation:bounce 2s ease infinite;">📍</div>
+          <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:600;color:var(--verde);">Mapa de resgates</div>
+          <div style="font-size:14px;color:var(--verde);opacity:0.7;">Animais registrados na sua região</div>
+        </div>
+        <div style="margin-top:20px;font-size:14px;color:var(--muted);line-height:2;">
+          🐾 <strong>47 animais</strong> registrados esta semana<br>
+          🏥 <strong>12 ONGs</strong> ativas na plataforma<br>
+          ⚡ Resposta média em <strong>2 horas</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOAÇÃO -->
+  <section class="doacao" id="doacao">
+    <div class="reveal">
+      <p class="section-label">Doação de ração</p>
+      <h2 class="section-title">Alimente quem mais precisa</h2>
+      <p class="section-subtitle">Escolha uma ONG. 100% vai direto para os animais.</p>
+    </div>
+    <div class="doacao-grid">
+      <div class="ong-card reveal" onclick="openOngPage('focinhos')">
+        <div class="ong-avatar" style="background:rgba(200,98,42,0.2);">🐕</div>
+        <h4>Lar dos Focinhos</h4>
+        <p>São Paulo, SP · Cuida de 80 cães e gatos resgatados das ruas da zona leste.</p>
+        <div class="ong-meta">
+          <div><div class="ong-stat-num">R$ 4.200</div><div class="ong-stat-label">este mês</div></div>
+          <div style="text-align:right"><div class="ong-stat-num">80</div><div class="ong-stat-label">animais</div></div>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width:70%"></div></div>
+        <div class="progress-info"><span>Meta: R$ 6.000</span><span>70%</span></div>
+        <div class="valores-rapidos">
+          <div class="valor-chip active" onclick="event.stopPropagation();selectChip(this)">R$10</div>
+          <div class="valor-chip" onclick="event.stopPropagation();selectChip(this)">R$25</div>
+          <div class="valor-chip" onclick="event.stopPropagation();selectChip(this)">R$50</div>
+          <div class="valor-chip" onclick="event.stopPropagation();selectChip(this)">Outro</div>
+        </div>
+        <button class="btn-doar" onclick="event.stopPropagation();showToast('💚 Obrigado! Sua doação vai alimentar vidas.')">Fazer doação</button>
+      </div>
+      <div class="ong-card reveal" onclick="openOngPage('gatoslivres')">
+        <div class="ong-avatar" style="background:rgba(42,107,74,0.3);">🐱</div>
+        <h4>Gatos Livres RJ</h4>
+        <p>Rio de Janeiro, RJ · Castração, vacinação e adoção de gatos de rua.</p>
+        <div class="ong-meta">
+          <div><div class="ong-stat-num">R$ 2.800</div><div class="ong-stat-label">este mês</div></div>
+          <div style="text-align:right"><div class="ong-stat-num">120</div><div class="ong-stat-label">gatos</div></div>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width:56%"></div></div>
+        <div class="progress-info"><span>Meta: R$ 5.000</span><span>56%</span></div>
+        <div class="valores-rapidos">
+          <div class="valor-chip active" onclick="event.stopPropagation();selectChip(this)">R$10</div>
+          <div class="valor-chip" onclick="event.stopPropagation();selectChip(this)">R$25</div>
+          <div class="valor-chip" onclick="event.stopPropagation();selectChip(this)">R$50</div>
+          <div class="valor-chip" onclick="event.stopPropagation();selectChip(this)">Outro</div>
+        </div>
+        <button class="btn-doar" onclick="event.stopPropagation();showToast('💚 Obrigado!')">Fazer doação</button>
+      </div>
+      <div class="ong-card reveal" onclick="openOngPage('patinhas')">
+        <div class="ong-avatar" style="background:rgba(42,95,200,0.2);">🐾</div>
+        <h4>Patinhas Sul</h4>
+        <p>Porto Alegre, RS · Resgate, reabilitação e adoção no sul do país.</p>
+        <div class="ong-meta">
+          <div><div class="ong-stat-num">R$ 1.950</div><div class="ong-stat-label">este mês</div></div>
+          <div style="text-align:right"><div class="ong-stat-num">45</div><div class="ong-stat-label">animais</div></div>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width:39%"></div></div>
+        <div class="progress-info"><span>Meta: R$ 5.000</span><span>39%</span></div>
+        <div class="valores-rapidos">
+          <div class="valor-chip active" onclick="event.stopPropagation();selectChip(this)">R$10</div>
+          <div class="valor-chip" onclick="event.stopPropagation();selectChip(this)">R$25</div>
+          <div class="valor-chip" onclick="event.stopPropagation();selectChip(this)">R$50</div>
+          <div class="valor-chip" onclick="event.stopPropagation();selectChip(this)">Outro</div>
+        </div>
+        <button class="btn-doar" onclick="event.stopPropagation();showToast('💚 Obrigado!')">Fazer doação</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACTO -->
+  <section class="impacto" id="impacto">
+    <div class="reveal" style="text-align:center;max-width:480px;margin:0 auto;">
+      <p class="section-label">Impacto real</p>
+      <h2 class="section-title">Números que transformam vidas</h2>
+    </div>
+    <div class="impacto-grid">
+      <div class="impacto-card reveal"><div class="impacto-icon">🏠</div><div class="impacto-num terra" data-target="1284">0</div><div class="impacto-label">animais adotados</div></div>
+      <div class="impacto-card reveal"><div class="impacto-icon">🚨</div><div class="impacto-num verde" data-target="3417">0</div><div class="impacto-label">resgates registrados</div></div>
+      <div class="impacto-card reveal"><div class="impacto-icon">🍖</div><div class="impacto-num blue" data-target="892">0</div><div class="impacto-label">kg de ração doados</div></div>
+      <div class="impacto-card reveal"><div class="impacto-icon">🏥</div><div class="impacto-num amber" data-target="12">0</div><div class="impacto-label">ONGs parceiras</div></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="nav-logo" onclick="goHome()" style="color:#F5A67A;">Pet<span style="color:rgba(255,255,255,0.8)">Hub</span>.</a>
+        <p>Conectando animais abandonados com famílias amorosas. Feito com ❤️ para fazer a diferença.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Plataforma</h5>
+        <a onclick="scrollTo('#adocao')">Adoção</a>
+        <a onclick="scrollTo('#doacao')">Doação de ração</a>
+        <a onclick="scrollTo('#resgate')">Registrar resgate</a>
+        <a onclick="scrollTo('#impacto')">Impacto social</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contato</h5>
+        <a>Para ONGs</a>
+        <a>Voluntários</a>
+        <a>Imprensa</a>
+        <a>contato@PetHub.com.br</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 PetHub. Todos os direitos reservados.</span>
+      <span>Feito com 🐾 para os animais</span>
+    </div>
+  </footer>
+</div>
+
+<!-- ════════ ONG PAGE VIEW ════════ -->
+<div class="view" id="ongView">
+  <div class="ong-page">
+    <div class="ong-hero">
+      <div class="ong-hero-bg"></div>
+      <div style="position:relative;z-index:1;padding-top:20px;">
+        <button class="back-btn" onclick="goHome()">← Voltar</button>
+      </div>
+      <div class="ong-hero-inner" id="ongHeroInner">
+        <!-- preenchido via JS -->
+      </div>
+      <div class="ong-tabs">
+        <div class="ong-tab active" onclick="switchTab(this,'animaisTab')">Animais disponíveis</div>
+        <div class="ong-tab" onclick="switchTab(this,'sobreTab')">Sobre a ONG</div>
+        <div class="ong-tab" onclick="switchTab(this,'doacaoTab')">Fazer doação</div>
+      </div>
+    </div>
+
+    <div class="ong-body">
+      <div class="ong-stats-row" id="ongStatsRow"></div>
+      <div class="ong-grid">
+        <div>
+          <!-- Tab: animais -->
+          <div id="animaisTab">
+            <div class="ong-section-title">Animais em processo de adoção</div>
+            <div class="ong-animals-grid" id="ongAnimalsList"></div>
+          </div>
+          <!-- Tab: sobre -->
+          <div id="sobreTab" style="display:none">
+            <div class="ong-section-title">Sobre a ONG</div>
+            <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:20px;" id="ongSobreText"></p>
+            <div style="background:var(--white);border-radius:var(--radius);padding:24px;border:1px solid var(--border);">
+              <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:600;margin-bottom:16px;">Como funciona a adoção</div>
+              <div style="display:flex;flex-direction:column;gap:14px;">
+                <div style="display:flex;gap:14px;align-items:flex-start;">
+                  <div style="width:28px;height:28px;border-radius:50%;background:var(--terra-pale);color:var(--terra);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:2px;">1</div>
+                  <div><div style="font-size:14px;font-weight:500;margin-bottom:2px;">Escolha um animal</div><div style="font-size:13px;color:var(--muted);">Navegue pelo perfil e veja fotos, temperamento e histórico.</div></div>
+                </div>
+                <div style="display:flex;gap:14px;align-items:flex-start;">
+                  <div style="width:28px;height:28px;border-radius:50%;background:var(--terra-pale);color:var(--terra);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:2px;">2</div>
+                  <div><div style="font-size:14px;font-weight:500;margin-bottom:2px;">Entre em contato</div><div style="font-size:13px;color:var(--muted);">A ONG vai te chamar via WhatsApp para uma entrevista rápida.</div></div>
+                </div>
+                <div style="display:flex;gap:14px;align-items:flex-start;">
+                  <div style="width:28px;height:28px;border-radius:50%;background:var(--terra-pale);color:var(--terra);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:2px;">3</div>
+                  <div><div style="font-size:14px;font-weight:500;margin-bottom:2px;">Visita e assinatura</div><div style="font-size:13px;color:var(--muted);">Você visita o animal e assina o termo de adoção responsável.</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Tab: doação -->
+          <div id="doacaoTab" style="display:none">
+            <div class="ong-section-title">Apoiar esta ONG</div>
+            <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:24px;">Sua doação vai diretamente para ração, vacinas e cuidados veterinários dos animais abrigados.</p>
+            <div style="background:var(--white);border-radius:var(--radius);padding:28px;border:1px solid var(--border);max-width:460px;">
+              <div style="font-size:13px;font-weight:500;margin-bottom:12px;">Escolha um valor</div>
+              <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;">
+                <button class="sidebar-chip active" onclick="selectSidebarChip(this)">R$ 10</button>
+                <button class="sidebar-chip" onclick="selectSidebarChip(this)">R$ 25</button>
+                <button class="sidebar-chip" onclick="selectSidebarChip(this)">R$ 50</button>
+                <button class="sidebar-chip" onclick="selectSidebarChip(this)">R$ 100</button>
+                <button class="sidebar-chip" onclick="selectSidebarChip(this)">Outro</button>
+              </div>
+              <input type="text" placeholder="Ou digite um valor personalizado" style="width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:'DM Sans',sans-serif;font-size:14px;margin-bottom:14px;outline:none;">
+              <div style="font-size:13px;font-weight:500;margin-bottom:10px;">Forma de pagamento</div>
+              <div style="display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap;">
+                <button class="sidebar-chip active" onclick="selectSidebarChip(this)" style="flex:none;padding:8px 16px;">Pix</button>
+                <button class="sidebar-chip" onclick="selectSidebarChip(this)" style="flex:none;padding:8px 16px;">Cartão</button>
+                <button class="sidebar-chip" onclick="selectSidebarChip(this)" style="flex:none;padding:8px 16px;">Boleto</button>
+              </div>
+              <button class="btn-primary" style="width:100%;justify-content:center;" onclick="showToast('💚 Redirecionando para o pagamento...')">Confirmar doação</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="ong-sidebar">
+          <div class="sidebar-card">
+            <div class="sidebar-card-title">Meta do mês</div>
+            <div class="sidebar-progress-label" id="ongSidebarMeta"></div>
+            <div class="sidebar-progress-track"><div class="sidebar-progress-fill" id="ongSidebarBar" style="width:0%"></div></div>
+            <div class="sidebar-progress-meta" id="ongSidebarMetaPct"></div>
+            <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:6px;" id="ongSidebarChips">
+              <button class="sidebar-chip active" onclick="selectSidebarChip(this)">R$ 10</button>
+              <button class="sidebar-chip" onclick="selectSidebarChip(this)">R$ 25</button>
+              <button class="sidebar-chip" onclick="selectSidebarChip(this)">R$ 50</button>
+              <button class="sidebar-chip" onclick="selectSidebarChip(this)">R$ 100</button>
+            </div>
+            <button class="btn-primary" style="width:100%;justify-content:center;margin-top:14px;" onclick="showToast('💚 Obrigado pela sua doação!')">Fazer doação</button>
+          </div>
+          <div class="sidebar-card">
+            <div class="sidebar-card-title">Contato</div>
+            <div class="sidebar-contact" id="ongSidebarContact"></div>
+          </div>
+          <div class="sidebar-card">
+            <div class="sidebar-card-title">Localização</div>
+            <div style="background:var(--verde-pale);border-radius:var(--radius-sm);height:120px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;margin-bottom:10px;">
+              <div style="font-size:24px;">📍</div>
+              <div style="font-size:13px;color:var(--verde);font-weight:500;" id="ongSidebarCity"></div>
+            </div>
+            <p style="font-size:13px;color:var(--muted);" id="ongSidebarAddr"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ MODAL ANIMAL ════════ -->
+<div class="modal-overlay" id="animalModal" onclick="closeModalOutside(event)">
+  <div class="modal-box" id="modalBox">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-inner">
+      <div class="modal-gallery">
+        <div class="modal-gallery-main" id="modalThumb"></div>
+        <div class="modal-thumbs" id="modalThumbs"></div>
+      </div>
+      <div class="modal-details">
+        <div class="modal-status"><span class="status-dot"></span><span class="status-text">Disponível para adoção</span></div>
+        <div class="modal-name" id="modalName"></div>
+        <div class="modal-breed" id="modalBreed"></div>
+        <div class="modal-tags" id="modalTags"></div>
+        <div class="modal-attrs" id="modalAttrs"></div>
+        <div class="modal-desc" id="modalDesc"></div>
+        <div class="modal-ong-mini" id="modalOng" onclick=""></div>
+        <div class="modal-actions">
+          <button class="btn-whatsapp" onclick="showToast('💬 Abrindo WhatsApp da ONG...')">💬 Falar com a ONG via WhatsApp</button>
+          <button class="btn-favorito" id="btnFav" onclick="toggleFav(this)">🤍 Salvar nos favoritos</button>
+          <button class="btn-secondary" style="justify-content:center;" onclick="closeModal()">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+</body>
+<script src="scripts/script.js"></script>
+</html>
