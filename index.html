@@ -14,11 +14,11 @@
 <nav id="navbar">
   <a class="nav-logo" onclick="goHome()">Pet<span>Hub</span>.</a>
   <div class="nav-links" id="navLinks">
-    <a onclick="goHome(); scrollTo('#modulos')">Como funciona</a>
-    <a onclick="goHome(); scrollTo('#adocao')">Adotar</a>
-    <a onclick="goHome(); scrollTo('#doacao')">Doar</a>
-    <a onclick="goHome(); scrollTo('#impacto')">Impacto</a>
-    <a onclick="goHome(); scrollTo('#adocao')" class="nav-cta">Encontrar um pet</a>
+    <a onclick="goHome();scrollToSection('#modulos')">Como funciona</a>
+    <a onclick="goHome(); scrollToSection('#adocao')">Adotar</a>
+    <a onclick="goHome(); scrollToSection('#doacao')">Doar</a>
+    <a onclick="goHome(); scrollToSection('#impacto')">Impacto</a>
+    <a onclick="goHome(); scrollToSection('#adocao')" class="nav-cta">Encontrar um pet</a>
   </div>
   <div class="hamburger" id="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
@@ -36,8 +36,8 @@
       <h1>Todo pet merece um lar <em>cheio de amor</em></h1>
       <p>Conectamos animais abandonados com famílias amorosas. Adote, doe ração ou registre um animal encontrado.</p>
       <div class="hero-actions">
-        <button class="btn-primary" onclick="scrollTo('#adocao')">🐾 Quero adotar</button>
-        <button class="btn-secondary" onclick="scrollTo('#resgate')">Registrar resgate →</button>
+        <button class="btn-primary" onclick="scrollToSection('#adocao')">🐾 Quero adotar</button>
+        <button class="btn-secondary" onclick="scrollToSection('#resgate')">Registrar resgate →</button>
       </div>
       <div class="hero-stats">
         <div><div class="stat-num" id="hc1">0</div><div class="stat-label">adoções realizadas</div></div>
@@ -59,25 +59,25 @@
       <h2 class="section-title">Tudo que um animal<br>abandonado precisa</h2>
     </div>
     <div class="modules-grid">
-      <div class="module-card reveal" onclick="scrollTo('#adocao')">
+      <div class="module-card reveal" onclick="scrollToSection('#adocao')">
         <div class="module-icon terra">🏠</div>
         <h3>Adoção</h3>
         <p>Encontre seu novo melhor amigo entre centenas de animais aguardando um lar.</p>
         <span class="module-link">Ver animais <span>→</span></span>
       </div>
-      <div class="module-card reveal" onclick="scrollTo('#doacao')">
+      <div class="module-card reveal" onclick="scrollToSection('#doacao')">
         <div class="module-icon verde">🍖</div>
         <h3>Doação de ração</h3>
         <p>Doe diretamente para ONGs parceiras e acompanhe o impacto da sua doação.</p>
         <span class="module-link">Escolher ONG <span>→</span></span>
       </div>
-      <div class="module-card reveal" onclick="scrollTo('#resgate')">
+      <div class="module-card reveal" onclick="scrollToSection('#resgate')">
         <div class="module-icon blue">📍</div>
         <h3>Registro de resgate</h3>
         <p>Encontrou um animal na rua? Registre agora e ajude a encaminhá-lo.</p>
         <span class="module-link">Registrar <span>→</span></span>
       </div>
-      <div class="module-card reveal" onclick=""'#impacto')">
+      <div class="module-card reveal" onclick="scrollToSection('#impacto')">
         <div class="module-icon amber">📊</div>
         <h3>Impacto social</h3>
         <p>Veja em tempo real quantas vidas foram transformadas pela plataforma.</p>
