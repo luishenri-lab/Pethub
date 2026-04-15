@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ResgataPet — Cada vida importa</title>
+<title>Pet — Cada vida importa</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles/global.css">
@@ -12,7 +12,7 @@
 
 <!-- NAV -->
 <nav id="navbar">
-  <a class="nav-logo" onclick="goHome()">Resgata<span>Pet</span>.</a>
+  <a class="nav-logo" onclick="goHome()">Pet<span>Hub</span>.</a>
   <div class="nav-links" id="navLinks">
     <a onclick="goHome(); scrollTo('#modulos')">Como funciona</a>
     <a onclick="goHome(); scrollTo('#adocao')">Adotar</a>
@@ -45,16 +45,9 @@
         <div><div class="stat-num" id="hc3">0</div><div class="stat-label">ONGs parceiras</div></div>
       </div>
     </div>
-   <img src="data/images/foto-10.jpg" alt="Reddish-brown and white dog with alert expression and pointed ears against a bright green background. The dog gazes directly at the camera with a focused, friendly demeanor. An adoptable pet featured on the ResgataPet platform.">
-          <h4>Thor</h4>
-          <div class="meta">Labrador · 2 anos · São Paulo, SP</div>
-          <div class="tags">
-            <span class="tag tag-verde">Vacinado</span>
-            <span class="tag tag-terra">Castrado</span>
-            <span class="tag tag-gray">Amigável</span>
-          </div>
-          <button onclick="openAnimalModal('thor')">Quero adotar o Thor</button>
-        </div>
+       <div class="hero-cat">
+  <img src="data/images/luna.png" alt="Luna">
+</div>
       </div>
     </div>
   </section>
@@ -84,7 +77,7 @@
         <p>Encontrou um animal na rua? Registre agora e ajude a encaminhá-lo.</p>
         <span class="module-link">Registrar <span>→</span></span>
       </div>
-      <div class="module-card reveal" onclick="scrollTo('#impacto')">
+      <div class="module-card reveal" onclick=""'#impacto')">
         <div class="module-icon amber">📊</div>
         <h3>Impacto social</h3>
         <p>Veja em tempo real quantas vidas foram transformadas pela plataforma.</p>
@@ -112,7 +105,7 @@
       <div class="animal-card" data-tipo="cachorro" onclick="openAnimalModal('thor')">
         <div class="animal-thumb cachorro"><div class="animal-badge">Disponível</div><img src="data/images/foto-10.jpg" alt="thor"></div>
         <div class="animal-info">
-          <h4>Thor</h4><div class="meta">Labrador · 1 anos · PRESIDENTE DUTRA, MA</div>
+          <h4>Thor</h4><div class="meta">Labrador · 1 ano · PRESIDENTE DUTRA, MA</div>
           <div class="tags"><span class="tag tag-verde">Vacinado</span><span class="tag tag-terra">Castrado</span></div>
           <button class="btn-adoptar">Ver detalhes</button>
         </div>
@@ -224,9 +217,9 @@
     </div>
     <div class="doacao-grid">
       <div class="ong-card reveal" onclick="openOngPage('focinhos')">
-        <div class="ong-avatar" style="background:rgba(200,98,42,0.2);">🐕</div>
+        <div class="ong-avatar" style="background:rgba(200,98,42,0.2);">🐶</div>
         <h4>Lar dos Focinhos</h4>
-        <p>São Paulo, SP · Cuida de 80 cães e gatos resgatados das ruas da zona leste.</p>
+        <p>Presidente Dutra, MA · Cuida de 80 cães e gatos resgatados das ruas no centro.</p>
         <div class="ong-meta">
           <div><div class="ong-stat-num">R$ 4.200</div><div class="ong-stat-label">este mês</div></div>
           <div style="text-align:right"><div class="ong-stat-num">80</div><div class="ong-stat-label">animais</div></div>
@@ -243,8 +236,8 @@
       </div>
       <div class="ong-card reveal" onclick="openOngPage('gatoslivres')">
         <div class="ong-avatar" style="background:rgba(42,107,74,0.3);">🐱</div>
-        <h4>Gatos Livres RJ</h4>
-        <p>Rio de Janeiro, RJ · Castração, vacinação e adoção de gatos de rua.</p>
+        <h4>Gatos Livres MA</h4>
+        <p>PRESIDENTE DUTRA, MA · Castração, vacinação e adoção de gatos de rua.</p>
         <div class="ong-meta">
           <div><div class="ong-stat-num">R$ 2.800</div><div class="ong-stat-label">este mês</div></div>
           <div style="text-align:right"><div class="ong-stat-num">120</div><div class="ong-stat-label">gatos</div></div>
@@ -261,8 +254,8 @@
       </div>
       <div class="ong-card reveal" onclick="openOngPage('patinhas')">
         <div class="ong-avatar" style="background:rgba(42,95,200,0.2);">🐾</div>
-        <h4>Patinhas Sul</h4>
-        <p>Porto Alegre, RS · Resgate, reabilitação e adoção no sul do país.</p>
+        <h4>Patinhas MA</h4>
+        <p>Presidente Dutra, MA · Resgate, reabilitação e adoção no interior.</p>
         <div class="ong-meta">
           <div><div class="ong-stat-num">R$ 1.950</div><div class="ong-stat-label">este mês</div></div>
           <div style="text-align:right"><div class="ong-stat-num">45</div><div class="ong-stat-label">animais</div></div>
