@@ -246,3 +246,33 @@ function scrollToSection(id) {
     behavior: 'smooth'
   });
 }
+
+// Criar mapa
+const map = L.map('map').setView([-5.289, -44.495], 13);
+
+// Tiles
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap'
+}).addTo(map);
+
+// Marcador inicial
+L.marker([-5.289, -44.495])
+  .addTo(map)
+  .bindPopup("📍 Resgate registrado aqui")
+  .openPopup();
+
+// Backend fake (resgates)
+const resgates = JSON.parse(localStorage.getItem("resgates")) || [];
+document.getElementById("total-resgates").innerText = resgates.length;
+
+function adicionarResgate(lat, lng) {
+  L.marker([lat, lng])
+    .addTo(map)
+    .bindPopup("🐾 Novo resgate!");
+
+  const resgates = JSON.parse(localStorage.getItem("resgates")) || [];
+  resgates.push({ lat, lng });
+  localStorage.setItem("resgates", JSON.stringify(resgates));
+
+  document.getElementById("total-resgates").innerText = resgates.length;
+}

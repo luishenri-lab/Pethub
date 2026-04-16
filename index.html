@@ -7,7 +7,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles/global.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <body>
 
 <!-- NAV -->
@@ -178,7 +180,7 @@
           </div>
           <div style="margin-bottom:14px;">
             <label style="font-size:13px;font-weight:500;display:block;margin-bottom:6px;">Localização *</label>
-            <input type="text" placeholder="Ex: Rua das Flores, 123 — São Paulo, SP" style="width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:'DM Sans',sans-serif;font-size:14px;outline:none;">
+            <input type="text" placeholder="Ex: Avenida Trancredo Neves, 123 — Pres. Dutra, MA" style="width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:'DM Sans',sans-serif;font-size:14px;outline:none;">
           </div>
           <div style="margin-bottom:14px;">
             <label style="font-size:13px;font-weight:500;display:block;margin-bottom:6px;">Seu WhatsApp *</label>
@@ -187,25 +189,28 @@
           <button class="btn-primary" style="width:100%;justify-content:center;" onclick="showToast('✅ Resgate registrado! Uma ONG entrará em contato.')">Registrar resgate</button>
         </div>
       </div>
-      <div>
-        <div style="background:linear-gradient(135deg,#E8F5EE,#D0EEE0);border-radius:var(--radius);height:380px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;border:1px solid var(--border);position:relative;overflow:hidden;">
-          <div style="position:absolute;inset:0;pointer-events:none;">
-            <div style="position:absolute;top:30%;left:40%;width:12px;height:12px;background:var(--terra);border-radius:50%;border:2px solid var(--white);box-shadow:0 2px 8px rgba(200,98,42,0.4);"></div>
-            <div style="position:absolute;top:55%;left:62%;width:12px;height:12px;background:var(--terra);border-radius:50%;border:2px solid var(--white);"></div>
-            <div style="position:absolute;top:44%;left:25%;width:12px;height:12px;background:var(--terra);border-radius:50%;border:2px solid var(--white);"></div>
-            <div style="position:absolute;top:70%;left:50%;width:12px;height:12px;background:var(--terra);border-radius:50%;border:2px solid var(--white);"></div>
-          </div>
-          <div style="font-size:32px;animation:bounce 2s ease infinite;">📍</div>
-          <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:600;color:var(--verde);">Mapa de resgates</div>
-          <div style="font-size:14px;color:var(--verde);opacity:0.7;">Animais registrados na sua região</div>
-        </div>
-        <div style="margin-top:20px;font-size:14px;color:var(--muted);line-height:2;">
-          🐾 <strong>47 animais</strong> registrados esta semana<br>
-          🏥 <strong>12 ONGs</strong> ativas na plataforma<br>
-          ⚡ Resposta média em <strong>2 horas</strong>
-        </div>
-      </div>
+      <div class="map-wrapper">
+
+  <!-- CARD DO MAPA -->
+  <div class="map-card">
+    <div id="map"></div>
+
+    <!-- overlay suave (mantém tua estética) -->
+    <div class="map-overlay">
+      <div class="map-icon">📍</div>
+      <div class="map-title">Mapa de resgates</div>
+      <div class="map-subtitle">Animais registrados na sua região</div>
     </div>
+  </div>
+
+  <!-- INFO -->
+  <div class="map-info">
+    🐾 <strong><span id="total-resgates">0</span> animais</strong> registrados<br>
+    🏥 <strong>12 ONGs</strong> ativas na plataforma<br>
+    ⚡ Resposta média em <strong>2 horas</strong>
+  </div>
+
+</div>
   </section>
 
   <!-- DOAÇÃO -->
