@@ -105,9 +105,9 @@
     </div>
     <div class="animais-grid">
       <div class="animal-card" data-tipo="cachorro" onclick="openAnimalModal('thor')">
-        <div class="animal-thumb cachorro"><div class="animal-badge">Disponível</div><img src="data/images/foto-10.jpg" alt="thor"></div>
+        <div class="animal-thumb cachorro"><div class="animal-badge">Disponível</div><img src="data/images/foto-7.jpg" alt="thor"></div>
         <div class="animal-info">
-          <h4>Thor</h4><div class="meta">Labrador · 1 ano · PRESIDENTE DUTRA, MA</div>
+          <h4>Thor</h4><div class="meta">Labrador · 5 meses · PRESIDENTE DUTRA, MA</div>
           <div class="tags"><span class="tag tag-verde">Vacinado</span><span class="tag tag-terra">Castrado</span></div>
           <button class="btn-adoptar">Ver detalhes</button>
         </div>
@@ -146,7 +146,7 @@
         </div>
       </div>
       <div class="animal-card" data-tipo="gato" onclick="openAnimalModal('luna')">
-        <div class="animal-thumb gato"><div class="animal-badge">Disponível</div><img src="data/images/foto-6.jpg" alt="Luna"></div>
+        <div class="animal-thumb gato"><div class="animal-badge">Disponível</div><img src="data/images/foto-12.jpg" alt="Luna"></div>
         <div class="animal-info">
           <h4>Luna</h4><div class="meta">SRD · 1 ano · PRESIDENTE DUTRA, MA</div>
           <div class="tags"><span class="tag tag-terra">Filhote</span><span class="tag tag-gray">Brincalhona</span></div>
@@ -195,7 +195,7 @@
   <div class="map-card">
     <div id="map"></div>
 
-    <!-- overlay suave (mantém tua estética) -->
+    <!-- overlay suave (mantém estética) -->
     <div class="map-overlay">
       <div class="map-icon">📍</div>
       <div class="map-title">Mapa de resgates</div>
@@ -205,7 +205,7 @@
 
   <!-- INFO -->
   <div class="map-info">
-    🐾 <strong><span id="total-resgates">0</span> animais</strong> registrados<br>
+    🐾 <strong><span id="total-resgates">500</span> animais</strong> registrados<br>
     🏥 <strong>12 ONGs</strong> ativas na plataforma<br>
     ⚡ Resposta média em <strong>2 horas</strong>
   </div>
@@ -369,31 +369,63 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> <!-- Tab: doação -->
           <!-- Tab: doação -->
-          <div id="doacaoTab" style="display:none">
-            <div class="ong-section-title">Apoiar esta ONG</div>
-            <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:24px;">Sua doação vai diretamente para ração, vacinas e cuidados veterinários dos animais abrigados.</p>
-            <div style="background:var(--white);border-radius:var(--radius);padding:28px;border:1px solid var(--border);max-width:460px;">
-              <div style="font-size:13px;font-weight:500;margin-bottom:12px;">Escolha um valor</div>
-              <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;">
-                <button class="sidebar-chip active" onclick="selectSidebarChip(this)">R$ 10</button>
-                <button class="sidebar-chip" onclick="selectSidebarChip(this)">R$ 25</button>
-                <button class="sidebar-chip" onclick="selectSidebarChip(this)">R$ 50</button>
-                <button class="sidebar-chip" onclick="selectSidebarChip(this)">R$ 100</button>
-                <button class="sidebar-chip" onclick="selectSidebarChip(this)">Outro</button>
-              </div>
-              <input type="text" placeholder="Ou digite um valor personalizado" style="width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:'DM Sans',sans-serif;font-size:14px;margin-bottom:14px;outline:none;">
-              <div style="font-size:13px;font-weight:500;margin-bottom:10px;">Forma de pagamento</div>
-              <div style="display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap;">
-                <button class="sidebar-chip active" onclick="selectSidebarChip(this)" style="flex:none;padding:8px 16px;">Pix</button>
-                <button class="sidebar-chip" onclick="selectSidebarChip(this)" style="flex:none;padding:8px 16px;">Cartão</button>
-                <button class="sidebar-chip" onclick="selectSidebarChip(this)" style="flex:none;padding:8px 16px;">Boleto</button>
-              </div>
-              <button class="btn-primary" style="width:100%;justify-content:center;" onclick="showToast('💚 Redirecionando para o pagamento...')">Confirmar doação</button>
-            </div>
-          </div>
-        </div>
+<div id="doacaoTab" style="display:none">
+  <div class="ong-section-title">Apoiar esta ONG</div>
+
+  <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:24px;">
+    Sua doação vai diretamente para ração, vacinas e cuidados veterinários dos animais abrigados.
+  </p>
+
+  <div style="background:var(--white);border-radius:var(--radius);padding:28px;border:1px solid var(--border);max-width:460px;">
+
+    <!-- VALORES -->
+    <div style="font-size:13px;font-weight:500;margin-bottom:12px;">
+      Escolha um valor
+    </div>
+
+    <div class="valores-doacao" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;">
+      <button type="button" class="sidebar-chip active" onclick="selectValor(this)">R$ 10</button>
+      <button type="button" class="sidebar-chip" onclick="selectValor(this)">R$ 25</button>
+      <button type="button" class="sidebar-chip" onclick="selectValor(this)">R$ 50</button>
+      <button type="button" class="sidebar-chip" onclick="selectValor(this)">R$ 100</button>
+      <button type="button" class="sidebar-chip" onclick="mostrarInput(this)">Outro</button>
+    </div>
+
+    <!-- INPUT PERSONALIZADO -->
+    <input 
+      type="number"
+      class="input-valor"
+      placeholder="Digite um valor personalizado"
+      style="width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:'DM Sans',sans-serif;font-size:14px;margin-bottom:10px;outline:none;display:none;"
+    >
+
+    <!-- IMPACTO -->
+    <p class="impacto-doacao" style="font-size:13px;color:#2ecc71;margin-bottom:14px;"></p>
+
+    <!-- PAGAMENTO -->
+    <div style="font-size:13px;font-weight:500;margin-bottom:10px;">
+      Forma de pagamento
+    </div>
+
+    <div class="formas-pagamento" style="display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap;">
+      <button type="button" class="sidebar-chip active" onclick="selectPagamento(this)">Pix</button>
+      <button type="button" class="sidebar-chip" onclick="selectPagamento(this)">Cartão</button>
+      <button type="button" class="sidebar-chip" onclick="selectPagamento(this)">Boleto</button>
+    </div>
+
+    <!-- BOTÃO -->
+    <button 
+      class="btn-primary" 
+      style="width:100%;justify-content:center;"
+      onclick="confirmarDoacao()"
+    >
+      Doar agora 💚
+    </button>
+
+  </div>
+</div>
 
         <!-- SIDEBAR -->
         <div class="ong-sidebar">
