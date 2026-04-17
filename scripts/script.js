@@ -263,7 +263,9 @@ L.marker([-5.289, -44.495])
 
 // Backend fake (resgates)
 const resgates = JSON.parse(localStorage.getItem("resgates")) || [];
-document.getElementById("total-resgates").innerText = resgates.length;
+
+document.getElementById("total-resgates").innerText =
+  resgates.length || 3.417;
 
 function adicionarResgate(lat, lng) {
   L.marker([lat, lng])

@@ -370,15 +370,11 @@
               </div>
             </div>
           </div> <!-- Tab: doação -->
-          <!-- Tab: doação -->
-<div id="doacaoTab" style="display:none">
-  <div class="ong-section-title">Apoiar esta ONG</div>
-
-  <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:24px;">
-    Sua doação vai diretamente para ração, vacinas e cuidados veterinários dos animais abrigados.
-  </p>
-
-  <div style="background:var(--white);border-radius:var(--radius);padding:28px;border:1px solid var(--border);max-width:460px;">
+           <!-- Tab: doação -->
+          <div id="doacaoTab" style="display:none">
+            <div class="ong-section-title">Apoiar esta ONG</div>
+            <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:24px;">Sua doação vai diretamente para ração, vacinas e cuidados veterinários dos animais abrigados.</p>
+            <div style="background:var(--white);border-radius:var(--radius);padding:28px;border:1px solid var(--border);max-width:460px;">
 
     <!-- VALORES -->
     <div style="font-size:13px;font-weight:500;margin-bottom:12px;">
@@ -435,13 +431,23 @@
             <div class="sidebar-progress-track"><div class="sidebar-progress-fill" id="ongSidebarBar" style="width:0%"></div></div>
             <div class="sidebar-progress-meta" id="ongSidebarMetaPct"></div>
             <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:6px;" id="ongSidebarChips">
-              <button class="sidebar-chip active" onclick="selectSidebarChip(this)">R$ 10</button>
-              <button class="sidebar-chip" onclick="selectSidebarChip(this)">R$ 25</button>
-              <button class="sidebar-chip" onclick="selectSidebarChip(this)">R$ 50</button>
-              <button class="sidebar-chip" onclick="selectSidebarChip(this)">R$ 100</button>
+                <button class="sidebar-chip active" onclick="selectSidebarChip(this)">R$ 10</button>
+                <button class="sidebar-chip" onclick="selectSidebarChip(this)">R$ 25</button>
+                <button class="sidebar-chip" onclick="selectSidebarChip(this)">R$ 50</button>
+                <button class="sidebar-chip" onclick="selectSidebarChip(this)">R$ 100</button>
+                <button class="sidebar-chip" onclick="selectSidebarChip(this)">Outro</button>
+              </div>
+              <input type="text" placeholder="Ou digite um valor personalizado" style="width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:'DM Sans',sans-serif;font-size:14px;margin-bottom:14px;outline:none;">
+              <div style="font-size:13px;font-weight:500;margin-bottom:10px;">Forma de pagamento</div>
+              <div style="display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap;">
+                <button class="sidebar-chip active" onclick="selectSidebarChip(this)" style="flex:none;padding:8px 16px;">Pix</button>
+                <button class="sidebar-chip" onclick="selectSidebarChip(this)" style="flex:none;padding:8px 16px;">Cartão</button>
+                <button class="sidebar-chip" onclick="selectSidebarChip(this)" style="flex:none;padding:8px 16px;">Boleto</button>
+              </div>
+              <button class="btn-primary" style="width:100%;justify-content:center;" onclick="showToast('💚 Redirecionando para o pagamento...')">Confirmar doação</button>
             </div>
-            <button class="btn-primary" style="width:100%;justify-content:center;margin-top:14px;" onclick="showToast('💚 Obrigado pela sua doação!')">Fazer doação</button>
           </div>
+        </div>    
           <div class="sidebar-card">
             <div class="sidebar-card-title">Contato</div>
             <div class="sidebar-contact" id="ongSidebarContact"></div>

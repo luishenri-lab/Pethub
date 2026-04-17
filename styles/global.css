@@ -83,6 +83,22 @@ section { padding: 96px 5%; }
 .float-body button { display: block; width: 100%; background: var(--terra); color: var(--white); border: none; border-radius: var(--radius-sm); padding: 11px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background 0.2s; }
 .float-body button:hover { background: var(--terra-light); }
 
+@media (max-width: 768px) {
+  .hero-tag {
+    margin-top: 10px;
+  }
+}
+
+.hero {
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: calc(100vh - 80px);
+  }
+}
+
 @keyframes fadeDown { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:translateY(0)} }
 @keyframes fadeLeft { from{opacity:0;transform:translate(24px,-50%)} to{opacity:1;transform:translate(0,-50%)} }
 
